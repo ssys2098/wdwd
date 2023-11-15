@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사이트 추천</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+        h1 {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            text-align: center; /* 리스트 내용 가운데 정렬 */
+        }
+        h2 {
+            background-color: #555;
+            color: #fff;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        li {
+            margin: 5px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <style>
+        #userMessage {
+            text-align: center;
+            background-color: #bbff00;
+            color: #000; /* 글자색을 검은색으로 변경 */
+            padding: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0; /* 위 아래 여백 추가 */
+        }
+    </style>
+
+    
+</head>
+<body>
+    <div id="userMessage"></div>
+
+    <h1>추천 사이트</h1>
+    <ul>
+        <li>
+            <h2>건강 사이트</h2>
+            <ul>
+                <li><a href="https://www.nhis.or.kr/nhis/index.do">국민건강보험</a></li>
+                <li><a href="https://www.kahp.or.kr/home/kahp_kor/rschYard/hlthInfo/7Cnc.jsp">한국건강관리협회</a></li>
+            </ul>
+        </li>
+        <li>
+            <h2>식단과 다이어트</h2>
+            <ul>
+                <li><a href="http://47kg.kr/DIET_HOME/main.php">칼로리 사전</a></li>
+                <li><a href="https://www.dietshin.com/main.asp">다이어트 정보사이트</a></li>
+            </ul>
+        </li>
+        <li>
+            <h2>3D 체형 확인 사이트</h2>
+            <ul>
+                <li><a href="https://bodyvisualizer.com/male.html">3D 체형 확인 사이트</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // URL에서 이름과 나이를 추출
+            const urlParams = new URLSearchParams(window.location.search);
+            const name = urlParams.get("name");
+            const age = urlParams.get("age");
+
+            const height = urlParams.get("height");
+            const weight = urlParams.get("weight");
+
+            const bloodType = urlParams.get("bloodType");
+
+            const gender = urlParams.get("gender");
+
+            const disease =  urlParams.get("disease");
+
+            if (name && age && weight &&height) {
+                // 이름과 나이를 표시
+                const message = `안녕하세요, ${name}님! 당신은 ${age}세 ${gender}입니다. 몸무게 : ${height} kg , 키 : ${weight}cm , 혈액형 : ${bloodType} 입니다 병명 : ${disease}.`;
+                document.getElementById("userMessage").textContent = message;
+            }
+        });
+    </script>
+</body>
+</html>
